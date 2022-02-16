@@ -21,6 +21,7 @@ session = Session()
 #     print(movie.title, movie.release_date)
 
 # Get actors with house in Glendale
+#actors = session.query(Actor).filter(Actor.contact_details.address == "Glendale, CA")
 actors = session.query(Actor).join(ContactDetails).filter(ContactDetails.address.contains("Glendale"))
 for actor in actors:
     print(actor.name)

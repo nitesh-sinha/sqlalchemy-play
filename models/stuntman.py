@@ -15,9 +15,9 @@ class Stuntman(Base):
     # with this stuntman. Also the actor object will get a property called
     # "stuntman" that is not a list.
     # One-to-one relationship between actor and stuntman
-    actor = relationship("Actor", backref=backref("stuntman", uselist=False))
+    actor = relationship("Actor", back_populates="stuntman", uselist=False)
 
-    def __init__(self, name, active, actor):
+    def __init__(self, name, active, actor=None):
         self.name = name
         self.active = active
         self.actor = actor
